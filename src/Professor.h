@@ -28,18 +28,9 @@
 class Professor
 {
 private:
-    /**
-     * @brief Name of the professor.
-     */
-    std::string name;
-    /**
-     * @brief Subject that the professor teaches.
-     */
-    std::string subject;
-    /**
-     * @brief List of students taught by the professor.
-     */
-    std::vector<WizardStudent *> students;
+    std::string name;                      ///< Name of the professor.
+    std::string subject;                   ///< Subject that the professor teaches.
+    std::vector<WizardStudent *> students; ///< List of students taught by the professor.
 
 public:
     /**
@@ -49,17 +40,20 @@ public:
      * @param s Subject taught by the professor.
      */
     Professor(std::string n, std::string s);
+
     /**
      * @brief Destroy the Professor object
      *
      */
     ~Professor();
+
     /**
      * @brief Adds a student to the professor's class.
      *
      * @param student Pointer to the WizardStudent that will be added.
      */
     void addStudent(WizardStudent *student);
+
     /**
      * @brief Teaches a spell to all students in the class.
      *
@@ -68,6 +62,7 @@ public:
      * @param spell Reference to the Spell object that will be taught.
      */
     void teachSpell(const Spell &spell);
+
     /**
      * @brief Evaluates all students by displaying the spells they know
      * and their current power levels.

@@ -25,18 +25,9 @@
 class Spell
 {
 private:
-    /**
-     * @brief Name of the spell.
-     */
-    std::string name;
-    /**
-     * @brief Description of the spell's magical effect.
-     */
-    std::string effect;
-    /**
-     * @brief Numerical value representing the strength of the spell.
-     */
-    int powerLevel;
+    std::string name;   ///< Name of the spell.
+    std::string effect; ///< Description of the spell's magical effect.
+    int powerLevel;     ///< Numerical value representing the strength of the spell.
 
 public:
     /**
@@ -47,29 +38,34 @@ public:
      * @param p Initial power level of the spell.
      */
     Spell(std::string n, std::string e, int p);
+
     /**
      * @brief Destroy the Spell object
      *
      */
     ~Spell();
+
     /**
      * @brief Returns the name of the spell.
      *
      * @return std::string Name of the spell.
      */
     std::string getName() const;
+
     /**
      * @brief Returns the effect produced by the spell.
      *
      * @return std::string Description of the spell's effect.
      */
     std::string getEffect() const;
+
     /**
      * @brief Returns the current power level of the spell.
      *
      * @return int Current power level.
      */
     int getPowerLevel() const;
+
     /**
      * @brief Practices the spell, increasing its power level by one.
      *

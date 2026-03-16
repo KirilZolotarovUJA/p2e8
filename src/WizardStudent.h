@@ -28,22 +28,10 @@
 class WizardStudent
 {
 private:
-    /**
-     * @brief Name of the student.
-     */
-    std::string name;
-    /**
-     * @brief House to which the student belongs (e.g., Gryffindor).
-     */
-    std::string house;
-    /**
-     * @brief Academic year of the student in the wizarding school.
-     */
-    int year;
-    /**
-     * @brief Collection of spells that the student has learned.
-     */
-    std::vector<Spell> spells;
+    std::string name;          ///< Name of the student.
+    std::string house;         ///< House to which the student belongs (e.g., Gryffindor).
+    int year;                  ///< Academic year of the student in the wizarding school.
+    std::vector<Spell> spells; ///< Collection of spells that the student has learned.
 
 public:
     /**
@@ -54,11 +42,13 @@ public:
      * @param y Academic year of the student.
      */
     WizardStudent(std::string n, std::string h, int y);
+
     /**
      * @brief Destroy the Wizard Student object
      *
      */
     ~WizardStudent();
+
     /**
      * @brief Allows the student to learn a new spell.
      *
@@ -67,17 +57,20 @@ public:
      * @param spell Reference to the spell that will be learned.
      */
     void learnSpell(const Spell &spell);
+
     /**
      * @brief Practices all spells known by the student.
      *
      * Each spell increases its power level when practiced.
      */
     void practiceSpells();
+
     /**
      * @brief Displays all spells known by the student
      * along with their current power levels.
      */
     void showSpells() const;
+
     /**
      * @brief Returns the name of the wizard student.
      *
