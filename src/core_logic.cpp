@@ -17,6 +17,24 @@
 #include "Professor.h"
 #include <iostream>
 
+// This function attempts to read a value from standard input.
+template <typename T>
+bool safe_read(T &value)
+{
+    if (std::cin >> value)
+        return true; // Successfully reading
+
+    // Check if EOF was reached
+    if (std::cin.eof())
+        return false; // EOF reached, we can exit the program
+
+    // If we get here, it means input error (e.g., non-numeric input)
+    std::cin.clear();             // Clear the error state
+    std::cin.ignore(10000, '\n'); // Ignore the rest to prevent infinite loop
+
+    return true; // Return true to continue the program
+}
+
 void displayMenu()
 {
     std::cout << "\n=== Wizarding School Menu ===\n";
@@ -38,7 +56,8 @@ void run_simulation()
     while (running)
     {
         displayMenu();
-        std::cin >> choice;
+        if (!safe_read(choice))
+            break; // Exit if EOF is reached
 
         switch (choice)
         {
@@ -46,9 +65,11 @@ void run_simulation()
         {
             std::string name, house;
             std::cout << "Enter student name: ";
-            std::cin >> name;
+            if (!safe_read(name))
+                break; // Exit if EOF is reached
             std::cout << "Enter house name: ";
-            std::cin >> house;
+            if (!safe_read(house))
+                break; // Exit if EOF is reached
 
             WizardStudent *student = new WizardStudent(name, house, 1);
             allStudents.push_back(student);
